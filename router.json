@@ -1,0 +1,12 @@
+{
+  "listen": ":8080",
+  "legacy": "http://localhost:8081",
+  "new": "http://localhost:8082",
+  "shadow_timeout": "300ms",
+  "max_shadow": 100,
+  "routes": [
+    {"prefix": "/customers", "mode": "shadow"},
+    {"prefix": "/orders", "mode": "legacy"}
+  ],
+  "ignore": ["$.legacy_rev", "$._flags", "$.customers[*].legacy_rev", "$.customers[*]._flags"]
+}
